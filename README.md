@@ -1,5 +1,7 @@
 # GithubThirtyDaysPeriodRepos
 
+GithubThirtyDaysPeriodRepos gets all github repositories created within 30 days period counting backwards from a user chosen date while relying on the Github Api as the backend
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
 
 ## Development server
