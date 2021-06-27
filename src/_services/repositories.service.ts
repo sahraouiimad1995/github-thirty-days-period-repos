@@ -5,6 +5,11 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class RepositoriesService {
 
+    pageRepositories: any;
+    currentPage: Number = 1;
+    pagesIndexes: Array<Number>;
+
+    // last creation date inputted by the user
     created_at: String;
 
     constructor(public http: HttpClient) {
@@ -37,7 +42,13 @@ export class RepositoriesService {
 
         this.getRepositories(created_at, page)
             .subscribe(data => {
-                return data
+                this.pageRepositories = data;
+                const x = Math.ceil((this.pageRepositories.total_count) / 30);
+                if (x > 15) {
+                    this.pagesIndexes = new Array(15);
+                } else {
+                    this.pagesIndexes = new Array(x);
+                }
             }, err => {
                 console.log(err);
             }
@@ -51,6 +62,7 @@ export class RepositoriesService {
      * @returns {void} 
      */
     gotoPage(page: Number) {
+        this.currentPage = page;
         this.doSearch(this.created_at, page);
     }
 }

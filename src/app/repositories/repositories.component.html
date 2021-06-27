@@ -1,0 +1,26 @@
+<div class="center-content">
+  <div class="list-group" *ngFor="let r of this.repositoriesService.pageRepositories?.items">
+    <a href="{{ r.html_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div>
+        <div>
+          <a href="{{ r.owner.html_url }}">
+            <img src="{{ r.owner.avatar_url }}" alt="user avatar" width="100px" height="100px"
+              style="float:left; margin-right:10px;"
+              onerror="this.onerror=null;this.src='../../assets/imgs/github.png';">
+          </a>
+        </div>
+        <div style="margin-left:100px;">
+          <h4 class="name">{{ r.name }}</h4>
+          <p>{{ r.description }}</p>
+          <p style="margin-left:10px;">
+            <small class="number first"><strong>Stars: <span class="stars">{{ r.stargazers_count
+                  }}</span></strong></small>
+            <small class="number"><strong>Issues: <span class="issues">{{ r.open_issues_count }}</span></strong></small>
+            Submitted {{ this.calculateDateDiff(r.updated_at) }} ago by
+            <a href="{{ r.owner.html_url }}">{{ r.owner.login }}</a>
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

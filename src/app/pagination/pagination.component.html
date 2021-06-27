@@ -1,0 +1,8 @@
+<nav aria-label="Page navigation example" style="margin-top:20px;">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [ngClass]="{'active':i==this.repositoriesService.currentPage - 1}"
+      *ngFor="let p of this.repositoriesService.pagesIndexes; let i = index;">
+      <a class="page-link" (click)="gotoPage(i+1)">{{i+1}}</a>
+    </li>
+  </ul>
+</nav>

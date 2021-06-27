@@ -1,0 +1,21 @@
+.number {
+    border: 3px solid grey;
+    padding: 3px;
+    margin-left: 5px;
+}
+
+.first {
+    margin-left: 0px;
+}
+
+.name:hover {
+    color: lightseagreen;
+}
+
+.stars {
+    color: orange;
+}
+
+.issues {
+    color: red;
+}
